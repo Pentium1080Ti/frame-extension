@@ -19,7 +19,8 @@
     "standard": "16.0.3",
     "terser-webpack-plugin": "5.2.3",
     "webpack": "5.52.0",
-    "webpack-cli": "4.8.0"
+    "webpack-cli": "4.8.0",
+    "web-ext": "^6.6.0"
   },
   "dependencies": {
     "eth-provider": "0.9.4",

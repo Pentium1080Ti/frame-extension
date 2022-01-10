@@ -4,12 +4,12 @@ function mmAppearToggle () {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs[0]) {
       chrome.tabs.executeScript(tabs[0].id, { code: 'localStorage[\'__frameAppearAsMM__\']' }, (results) => {
-        let mmAppear = false
+        let mmAppear = true;
         if (results) {
           try {
             mmAppear = JSON.parse(results[0])
           } catch (e) {
-            mmAppear = false
+            mmAppear = true;
           }
           chrome.tabs.executeScript(tabs[0].id, { code: `localStorage.setItem('__frameAppearAsMM__', ${JSON.stringify(!mmAppear)}); window.location.reload();` })
         }
@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('mmAppearToggle').addEventListener('click', mmAppearToggle)
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.executeScript(tabs[0].id, { code: 'localStorage[\'__frameAppearAsMM__\']' }, (results) => {
-      let mmAppear = false
+      let mmAppear = true;
       if (results) {
         try {
           mmAppear = JSON.parse(results[0])
         } catch (e) {
-          mmAppear = false
+          mmAppear = true;
         }
       }
       const toggle = document.getElementById('mmAppearToggle')

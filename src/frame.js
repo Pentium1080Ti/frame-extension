@@ -17,13 +17,7 @@ class Connection extends EventEmitter {
   }
 }
 
-let mmAppear = window.localStorage.getItem('__frameAppearAsMM__')
-
-try {
-  mmAppear = JSON.parse(mmAppear)
-} catch (e) {
-  mmAppear = false
-}
+let mmAppear = true;
 
 if (mmAppear) {
   class MetaMaskProvider extends EthereumProvider {}
